@@ -120,21 +120,28 @@ public class Main {
             System.out.println("Entre o digito que precisa ter");
             int d = Integer.parseInt(myObj.nextLine());
 
-            boolean flag = false;
             int quantidade_numeros = 0;
-            int j = 2;
+            int j = 0;
             int quantidade_digitos = 0;
 
             while(n > quantidade_numeros){
+
+                String numero_string = String.valueOf(j);
+                String digito_string = String.valueOf(d);
                 quantidade_digitos = 0;
-                flag = false;
-                for(int i = 2;i < (j/2) + 1; i++){
-                    if (j % i == 0){
-                        flag = true;
+
+
+                String[] numeros_separados =  numero_string.split("");
+
+
+                for(int i = 0; i < numeros_separados.length; i++){
+                    if(numeros_separados[i].equals(digito_string)){
+                        quantidade_digitos++;
                     }
                 }
-                if (flag){
-                    System.out.println("O número " + j + " é primo!!");
+
+                if(quantidade_digitos >= m){
+                    System.out.println(j);
                     quantidade_numeros++;
                 }
                 j++;
